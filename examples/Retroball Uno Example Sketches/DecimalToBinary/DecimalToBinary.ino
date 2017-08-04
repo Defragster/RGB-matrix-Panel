@@ -10,6 +10,13 @@
 #include <Adafruit_GFX.h>   // Core graphics library
 #include <RGBmatrixPanel.h> // Hardware-specific library
 
+#ifdef CORE_TEENSY
+const int potA = A6;
+const int potB = A3;
+const int potC = A4;
+const int potD = A7;
+RGBmatrixPanel matrix(false, 32);
+#else
 // If your 32x32 matrix has the SINGLE HEADER input,
 // use this pinout:
 #define CLK 8  // MUST be on PORTB! (Use pin 11 on Mega)
@@ -19,38 +26,43 @@
 #define B   A1
 #define C   A2
 #define D   A3
-// If your matrix has the DOUBLE HEADER input, use:
-//#define CLK 8  // MUST be on PORTB! (Use pin 11 on Mega)
-//#define LAT 9
-//#define OE  10
-//#define A   A3
-//#define B   A2
-//#define C   A1
-//#define D   A0
-RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false);
+const int potA = A9;
+const int potB = A8;
+const int potC = A7;
+const int potD = A6;
 
-int myNumber = 0;
-int lastNumber = 0;
+RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false);
+#endif
+
+
+int myNumber[4] = {0, 0, 0, 0};
+int lastNumber[4] = {0, 0, 0, 0};
 
 void setup() {
   matrix.begin();
   matrix.setTextSize(1);     // size 1 == 8 pixels high
   matrix.setTextWrap(false); // Don't wrap at end of line - will do ourselves
-  matrix.setTextColor(matrix.Color333(7,0,0));
+  matrix.setTextColor(matrix.Color333(7, 0, 0));
 }
 
 void loop() {
-  myNumber = analogRead(A5) / 8;
+  myNumber[0] = analogRead(potA) / 8;
+  myNumber[1] = analogRead(potB) / 8;
+  myNumber[2] = analogRead(potC) / 8;
+  myNumber[3] = analogRead(potD) / 8;
   // don't bother updating the display UNLESS we have a new number (otherwise we are drawing the same thing over again...)
-  if(myNumber != lastNumber){
-    matrix.fillScreen(matrix.Color333(0, 0, 0));
-    matrix.setCursor(10, 5);
-    matrix.print(myNumber);
-    for(int index = 0; index < 8; index++){
-      if(bitRead(myNumber, index) == 1) matrix.drawPixel((20 - index), 16, matrix.Color333(0, 0, 7));
+  for ( int ii = 0; ii < 4; ii++ ) {
+    if (myNumber[ii] != lastNumber[ii]) {
+      matrix.fillRect(0, ii*8, 31, 8, matrix.Color333(0, 0, 0));
+      matrix.setCursor(2 , ii * 8);
+      matrix.print(myNumber[ii]);
+      //      matrix.setCursor(24, 0);
+      for (int index = 0; index < 8; index++) {
+        if (bitRead(myNumber[ii], index) == 1) matrix.drawPixel((30 - index), 4 + 8 * ii, matrix.Color333(0, 0, 7));
+      }
     }
-    delay(50);
+    lastNumber[ii] = myNumber[ii];
   }
-  lastNumber = myNumber;
+  delay(50);
 }
 

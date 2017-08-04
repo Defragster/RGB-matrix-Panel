@@ -16,13 +16,15 @@
  *             G2 - 6
  *             B2 - 7
  */	
-	#define CLK 19
-	#define LAT 18
-	#define OE  17
-	#define A   23
-	#define B   22
-	#define C   15
-	#define D   16
+#define CLK 19
+//#define LAT 18
+//#define OE  17
+ #define LAT 10
+ #define OE  9
+#define A   23
+#define B   22
+#define C   15
+#define D   16
 #endif
 
 class RGBmatrixPanel : public Adafruit_GFX {
