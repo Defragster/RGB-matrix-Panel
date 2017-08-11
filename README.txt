@@ -29,22 +29,42 @@ http://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use
  I didn;t wire up a T_3.2 but it should work just like a T_3.2 or even a T_3.0?
  It did not work on a T_LC.
  
- The other pins are hard wired like this with two noted changes to allow for the 
+ The other pins are hard wired like this with two commented changes to allow for the 
  hardware at hand to have use of four analog pins for POTS.
 #define CLK 19
-//#define LAT 18
-//#define OE  17
+// #define LAT 18
 #define LAT 10
-#define CLK 19
-//#define LAT 18
-//#define OE  17
- #define LAT 10
- #define OE  9
-#define A   23
-#define B   22
-#define C   15
-#define D   16#define OE  9
+// #define OE  17
+#define OE  9
 #define A   23
 #define B   22
 #define C   15
 #define D   16
+
+Designed to put Teensy on this PCB: 
+https://www.kickstarter.com/projects/1897710270/retroball-build-it-yourself-pixel-fun-for-upto-fou-0/description
+
+With this change to any EXAMPLE I tried it worked to run on my Teensy setup:
+#ifdef CORE_TEENSY
+const int potA = A6;
+const int potB = A3;
+const int potC = A4;
+const int potD = A7;
+RGBmatrixPanel matrix(false, 32);
+#else
+// If your 32x32 matrix has the SINGLE HEADER input,
+// use this pinout:
+#define CLK 8  // MUST be on PORTB! (Use pin 11 on Mega)
+#define OE  9
+#define LAT 10
+#define A   A0
+#define B   A1
+#define C   A2
+#define D   A3
+const int potA = A9;
+const int potB = A8;
+const int potC = A7;
+const int potD = A6;
+
+RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false);
+#endif
