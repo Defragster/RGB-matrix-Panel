@@ -17,7 +17,7 @@ Restart the IDE.
 We also have a great tutorial on Arduino library installation at:
 http://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use
 
->> This code worked perfectly on Teensy 3.1, 2.5 and 3.6 when I found this pin map:
+>> This code worked perfectly on Teensy 3.1, 3.5 and 3.6 when I found this pin map:
  *     Matrix PIN   Teensy 3.5 PIN
  *             R1 - 2
  *             G1 - 3
