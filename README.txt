@@ -26,7 +26,7 @@ http://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use
  *             G2 - 6
  *             B2 - 7
  
- I didn;t wire up a T_3.2 but it should work just like a T_3.2 or even a T_3.0?
+ I didn't wire up a T_3.2 but it should work just like a T_3.1 or even a T_3.0?
  It did not work on a T_LC.
  
  The other pins are hard wired like this with two commented changes to allow for the 
