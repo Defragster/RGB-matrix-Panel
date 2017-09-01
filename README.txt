@@ -10,10 +10,19 @@ https://www.arduino.cc/en/Main/Software [ current version today is 1.8.4 ]
 For Teensy to use the latest IDE build the current 'Beta' 1.39b1 is required: https://forum.pjrc.com/threads/46089-Teensyduino-1-39-Beta-1
 Start the installer and point it to where the IDE was unzipped. It modifies it in place adding the needed support for Teensy.
 
+To build the LIBRARY has to be in 'your' sketchbook\libraries folder.
+On my system this is: I:\tCode\libraries\RGB-matrix-Panel
+I unzip the IDE to I:\arduino-1.8.4, the default sketchbook location is within that folder as I:\arduino-1.8.4\libraries
+Using that gets confusing as the IDE version changes so I made folder "I:\tCode" where I store all my sketches.
+In the IDE I use : "File / Preferences / Sketchbook Location " to growse and set "I:\tCode" for that
+Then in that folder I create: "I:\tCode\libraries" 
+
+Wherever youd keep your "sketchbook_folder\libraries\RGB-matrix-Panel" - is where these Github files need to be placed to build.
+
+For Teensy there is a great FORUM - https://forum.pjrc.com and the https://www.pjrc.com/teensy/td_download.html for product details. That last link shows installing TeensyDuino in detail and notes the shipped Blinking Teensy needs a press of the [PROGRAM] button to initiate after the first 'Verify' build.
 
 
-
-
+-----------
 This is an Arduino library for our 16x32 and 32x32 RGB LED matrix panels
 
 Pick one up at http://www.adafruit.com/products/420 & http://www.adafruit.com/products/607 !
