@@ -53,6 +53,7 @@ void loop() {
   matrix.drawPixel((analogRead(potD) / 32), (analogRead(potA) / 32), matrix.Color333(redColor, greenColor, blueColor));
   if (digitalRead(buttonSelect) == LOW) {
     matrix.fillScreen(matrix.Color333(0, 0, 0));
+    //test white         matrix.fillScreen(matrix.Color333(7, 7, 7));
   }
   if (digitalRead(buttonPause) == LOW) {
     if (myColor++ > 7) myColor = 1;

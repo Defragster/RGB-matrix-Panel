@@ -1,3 +1,19 @@
+Updating this for RetroBall on Teensy usage Tools I use on Windows:
+TyCommander is a simple way to upload HEX files - I'll put some precompiled T_3.5 Hex files in Examples.
+Pull down this ZIP end extract to a folder then unblock the "TyCommander.exe" and run it:
+https://bintray.com/koromix/tytools/tytools/view#files/ <click FILES then the UPDATED column>
+I'm using this copy current today: https://bintray.com/koromix/tytools/download_file?file_path=TyTools-0.8.8-win64.zip
+
+For Full Arduino Install go here and 'Download the Arduino IDE' - I pull down the ZIP and extract to a folder on a drive root:
+https://www.arduino.cc/en/Main/Software [ current version today is 1.8.4 ]
+
+For Teensy to use the latest IDE build the current 'Beta' 1.39b1 is required: https://forum.pjrc.com/threads/46089-Teensyduino-1-39-Beta-1
+Start the installer and point it to where the IDE was unzipped. It modifies it in place adding the needed support for Teensy.
+
+
+
+
+
 This is an Arduino library for our 16x32 and 32x32 RGB LED matrix panels
 
 Pick one up at http://www.adafruit.com/products/420 & http://www.adafruit.com/products/607 !
