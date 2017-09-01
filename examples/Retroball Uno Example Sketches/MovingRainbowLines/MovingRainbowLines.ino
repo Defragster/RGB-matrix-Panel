@@ -10,6 +10,13 @@
 #include <Adafruit_GFX.h>   // Core graphics library
 #include <RGBmatrixPanel.h> // Hardware-specific library
 
+#ifdef CORE_TEENSY
+const int potA = A6;
+const int potB = A3;
+const int potC = A4;
+const int potD = A7;
+RGBmatrixPanel matrix(false, 32);
+#else
 // If your 32x32 matrix has the SINGLE HEADER input,
 // use this pinout:
 #define CLK 8  // MUST be on PORTB! (Use pin 11 on Mega)
@@ -21,6 +28,7 @@
 #define D   A3
 
 RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false);
+#endif
 
 const int buttonSelect = 12;
 const int buttonPause = 11;
