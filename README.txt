@@ -17,7 +17,7 @@ Using that gets confusing as the IDE version changes so I made folder "I:\tCode"
 In the IDE I use : "File / Preferences / Sketchbook Location " to growse and set "I:\tCode" for that
 Then in that folder I create: "I:\tCode\libraries" 
 
-Wherever youd keep your "sketchbook_folder\libraries\RGB-matrix-Panel" - is where these Github files need to be placed to build.
+Wherever you keep your "sketchbook_folder\libraries\RGB-matrix-Panel" - is where these Github files need to be placed to build.
 
 For Teensy there is a great FORUM - https://forum.pjrc.com and the https://www.pjrc.com/teensy/td_download.html for product details. That last link shows installing TeensyDuino in detail and notes the shipped Blinking Teensy needs a press of the [PROGRAM] button to initiate after the first 'Verify' build.
 
