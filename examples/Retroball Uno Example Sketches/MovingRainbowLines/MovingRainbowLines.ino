@@ -17,6 +17,7 @@ const int potC = A4;
 const int potD = A7;
 RGBmatrixPanel matrix(false, 32);
 #else
+const int potA = A5;
 // If your 32x32 matrix has the SINGLE HEADER input,
 // use this pinout:
 #define CLK 8  // MUST be on PORTB! (Use pin 11 on Mega)
@@ -49,42 +50,42 @@ void setup() {
 void loop() {
     for(lineX = 0; lineX < 32; lineX++){  
         matrix.drawLine(0, 0, 31, lineX, matrix.Color333(7, 0, 0));
-        delay((1023 - analogRead(A5)) / 50);
+        delay((1023 - analogRead(potA)) / 50);
         matrix.fillScreen(matrix.Color333(0, 0, 0));
     }
     for(lineX = 0; lineX < 32; lineX++){  
         matrix.drawLine(lineX, 0, 31, 31, matrix.Color333(0, 7, 0));
-        delay((1023 - analogRead(A5)) / 50);
+        delay((1023 - analogRead(potA)) / 50);
         matrix.fillScreen(matrix.Color333(0, 0, 0));
     }
     for(lineX = 31; lineX != 0; lineX--){  
         matrix.drawLine(31, 0, lineX, 31, matrix.Color333(0, 0, 7));
-        delay((1023 - analogRead(A5)) / 50);
+        delay((1023 - analogRead(potA)) / 50);
         matrix.fillScreen(matrix.Color333(0, 0, 0));
     }
     for(lineX = 0; lineX < 32; lineX++){  
         matrix.drawLine(31, lineX, 0, 31, matrix.Color333(7, 7, 0));
-        delay((1023 - analogRead(A5)) / 50);
+        delay((1023 - analogRead(potA)) / 50);
         matrix.fillScreen(matrix.Color333(0, 0, 0));
     }
     for(lineX = 31; lineX != 0; lineX--){  
         matrix.drawLine(31, 31, 0, lineX, matrix.Color333(7, 0, 7));
-        delay((1023 - analogRead(A5)) / 50);
+        delay((1023 - analogRead(potA)) / 50);
         matrix.fillScreen(matrix.Color333(0, 0, 0));
     }
     for(lineX = 31; lineX != 0; lineX--){  
         matrix.drawLine(lineX, 31, 0, 0, matrix.Color333(0, 7, 7));
-        delay((1023 - analogRead(A5)) / 50);
+        delay((1023 - analogRead(potA)) / 50);
         matrix.fillScreen(matrix.Color333(0, 0, 0));
     }
     for(lineX = 0; lineX < 32; lineX++){  
         matrix.drawLine(0, 31, lineX, 0, matrix.Color333(7, 7, 7));
-        delay((1023 - analogRead(A5)) / 50);
+        delay((1023 - analogRead(potA)) / 50);
         matrix.fillScreen(matrix.Color333(0, 0, 0));
     }
     for(lineX = 31; lineX != 0; lineX--){  
         matrix.drawLine(0, lineX, 31, 0, matrix.Color333(0, 0, 7));
-        delay((1023 - analogRead(A5)) / 50);
+        delay((1023 - analogRead(potA)) / 50);
         matrix.fillScreen(matrix.Color333(0, 0, 0));
     }
 }
