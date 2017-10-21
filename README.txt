@@ -1,3 +1,7 @@
+Update 10/20/2017: Built a T_3.6 into my RetroBall and it works.
+Quick update for now - the below should be helpful - for now latest notes in this forum post:
+https://forum.pjrc.com/threads/45772-32x32-RGB-LED-Matrix-with-a-Teensy-footprint?p=157109&viewfull=1#post157109
+
 Updating this for RetroBall on Teensy usage Tools I use on Windows:
 TyCommander is a simple way to upload HEX files - I'll put some precompiled T_3.5 Hex files in Examples.
 Pull down this ZIP end extract to a folder then unblock the "TyCommander.exe" and run it:
