@@ -1,4 +1,11 @@
-Update 10/20/2017: Built a T_3.6 into my RetroBall and it works.
+Update 10/21/17:
+
+*** WARNING - don't use this on a T_3.6 ***
+It seems the POTS are wired to VIN 5V - not from the cut Jumper to 3.3V.
+*** WARNING - don't use this on a T_3.6 ***
+
+
+Update 10/20/2017: Built a T_3.xx into my RetroBall and it works.
 Quick update for now - the below should be helpful - for now latest notes in this forum post:
 https://forum.pjrc.com/threads/45772-32x32-RGB-LED-Matrix-with-a-Teensy-footprint?p=157109&viewfull=1#post157109
 
