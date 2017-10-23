@@ -44,7 +44,7 @@ int greenColor = 0;
 int blueColor = 0;
 
 static uint8_t rr = 0, gg = 0, bb = 0;
-static uint8_t NOwait = 2;
+static uint8_t NOwait = 0;
 void setup() {
   pinMode(buttonSelect, INPUT_PULLUP);
   pinMode(buttonPause, INPUT_PULLUP);
@@ -57,9 +57,20 @@ void loop() {
   matrix.fillScreen(matrix.Color333(0, 0, 0));
   if ( 0 == rr && 0 == bb && 0 == gg ) {
     brightTest();
-    delay ( 500 * (1+NOwait) );
-    while (!NOwait && digitalRead(buttonSelect) == HIGH ) ;
-    matrix.fillScreen(matrix.Color333(0, 0, 0));
+    //    delay ( 500 * (1+NOwait) );
+    delay((1023 - analogRead(potA)) / 2);
+    while (!NOwait && digitalRead(buttonSelect) == HIGH ) 
+    if ( !digitalRead(buttonPause)) {
+      if ( NOwait ) NOwait=0;
+      else NOwait =1;
+      delay(200);
+    }
+    if ( !digitalRead(buttonPause)) {
+      if ( NOwait ) NOwait=0;
+      else NOwait =1;
+      delay(200);
+    }
+    //matrix.fillScreen(matrix.Color333(0, 0, 0));
   }
   for ( uint8_t yy = 0; yy < 32; yy++ ) {
     for ( uint8_t xx = 0; xx < 32; xx += 2 ) {
@@ -81,8 +92,14 @@ void loop() {
       }
     }
   }
-    delay ( 500 * (1+NOwait) );
-  while (!NOwait && digitalRead(buttonSelect) == HIGH ) ;
+  //    delay ( 500 * (1+NOwait) );
+  delay((1023 - analogRead(potA)) / 2);
+  while (!NOwait && digitalRead(buttonSelect) == HIGH )
+    if ( !digitalRead(buttonPause)) {
+      if ( NOwait ) NOwait=0;
+      else NOwait =1;
+      delay(200);
+    }
 }
 
 void brightTest() {
@@ -93,7 +110,7 @@ void brightTest() {
     }
   }
   rr = 0;
-    delay ( 500 * (1+NOwait) );
+  delay((1023 - analogRead(potA)) / 2);
   while (!NOwait && digitalRead(buttonSelect) == HIGH ) ;
   for ( uint8_t yy = 0; yy < 32; yy++ ) {
     for ( uint8_t xx = 0; xx < 32; xx += 4 ) {
@@ -102,7 +119,7 @@ void brightTest() {
     }
   }
   gg = 0;
-    delay ( 500 * (1+NOwait) );
+  delay((1023 - analogRead(potA)) / 2);
   while (!NOwait && digitalRead(buttonSelect) == HIGH ) ;
   for ( uint8_t yy = 0; yy < 32; yy++ ) {
     for ( uint8_t xx = 0; xx < 32; xx += 4 ) {
