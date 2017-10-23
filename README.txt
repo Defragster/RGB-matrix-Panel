@@ -1,9 +1,11 @@
-Update 10/21/17:
+Update 10/23/17:
+*** WARNING - don't use this on a T_3.6 - without limiting 5V on the pot to a 3.3V source ***
+The POT pads are wired to VIN 5V - not from the cut Jumper to 3.3V.
 
-*** WARNING - don't use this on a T_3.6 ***
-It seems the POTS are wired to VIN 5V - not from the cut Jumper to 3.3V.
-*** WARNING - don't use this on a T_3.6 ***
+Here is the change I made to take the pots to 3.3V max for Teensy Usage. In the case of T_3.6 it could cause damage, in any case the POTS will top out at 3.3V and the last part of the knob will show no increase on T_3.2 or T_3.5.
 
+With the change shown here: https://forum.pjrc.com/threads/45772-32x32-RGB-LED-Matrix-with-a-Teensy-footprint?p=157265&viewfull=1#post157265
+I have seen it work with a Teensy 3.2 and 3.6.
 
 Update 10/20/2017: Built a T_3.xx into my RetroBall and it works.
 Quick update for now - the below should be helpful - for now latest notes in this forum post:
